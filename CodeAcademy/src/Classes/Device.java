@@ -1,78 +1,78 @@
 package Classes;
 
 public class Device {
-    int InventoryID;
-    int ProductID;
-    int StockroomID;
-    String Manufacturer;
-    String Model;
-    String SerialNumber;
-    int Cost;
+    private int inventoryID;
+    private int productID;
+    private int stockroomID;
+    private String manufacturer;
+    private String model;
+    private String serialNumber;
+    private int cost;
 
     public Device(int inventoryID, int productID, int stockroomID, String manufacturer, String model, String serialNumber, int cost) {
-        InventoryID = inventoryID;
-        ProductID = productID;
-        StockroomID = stockroomID;
-        Manufacturer = manufacturer;
-        Model = model;
-        SerialNumber = serialNumber;
-        Cost = cost;
+        this.inventoryID = inventoryID;
+        this.productID = productID;
+        this.stockroomID = stockroomID;
+        this.manufacturer = manufacturer;
+        this.model = model;
+        this.serialNumber = serialNumber;
+        this.cost = cost;
     }
 
     public int getInventoryID() {
-        return InventoryID;
+        return inventoryID;
     }
 
     public void setInventoryID(int inventoryID) {
-        InventoryID = inventoryID;
+        this.inventoryID = inventoryID;
     }
 
     public int getProductID() {
-        return ProductID;
+        return productID;
     }
 
     public void setProductID(int productID) {
-        ProductID = productID;
+        this.productID = productID;
     }
 
     public int getStockroomID() {
-        return StockroomID;
+        return stockroomID;
     }
 
     public void setStockroomID(int stockroomID) {
-        StockroomID = stockroomID;
+        this.stockroomID = stockroomID;
     }
 
     public String getManufacturer() {
-        return Manufacturer;
+        return manufacturer;
     }
 
     public void setManufacturer(String manufacturer) {
-        Manufacturer = manufacturer;
+        this.manufacturer = manufacturer;
     }
 
     public String getModel() {
-        return Model;
+        return model;
     }
 
     public void setModel(String model) {
-        Model = model;
+        this.model = model;
     }
 
     public String getSerialNumber() {
-        return SerialNumber;
+        return serialNumber;
     }
 
     public void setSerialNumber(String serialNumber) {
-        SerialNumber = serialNumber;
+        this.serialNumber = serialNumber;
     }
 
     public int getCost() {
-        return Cost;
+        return cost;
     }
 
     public void setCost(int cost) {
-        Cost = cost;
+        this.cost = cost;
     }
 }
 

@@ -1,59 +1,59 @@
 package Classes;
 
 public class Manager {
-    int ManagerID;
-    int StockroomID;
-    int DNI;
-    String FullName;
-    String Country;
+    private int managerID;
+    private int stockroomID;
+    private int dni;
+    private String fullName;
+    private String country;
 
 
     public int getManagerID() {
-        return ManagerID;
+        return managerID;
     }
 
     public void setManagerID(int managerID) {
-        ManagerID = managerID;
+        this.managerID = managerID;
     }
 
     public int getStockroomID() {
-        return StockroomID;
+        return stockroomID;
     }
 
     public void setStockroomID(int stockroomID) {
-        StockroomID = stockroomID;
+        this.stockroomID = stockroomID;
     }
 
     public Manager(int managerID, int stockroomID, int DNI, String fullName, String country) {
-        ManagerID = managerID;
-        StockroomID = stockroomID;
-        this.DNI = DNI;
-        FullName = fullName;
-        Country = country;
+        this.managerID = managerID;
+        this.stockroomID = stockroomID;
+        this.dni = DNI;
+        this.fullName = fullName;
+        this.country = country;
     }
 
-    public int getDNI() {
-        return DNI;
+    public int getDni() {
+        return dni;
     }
 
-    public void setDNI(int DNI) {
-        this.DNI = DNI;
+    public void setDni(int dni) {
+        this.dni = dni;
     }
 
     public String getFullName() {
-        return FullName;
+        return fullName;
     }
 
     public void setFullName(String fullName) {
-        FullName = fullName;
+        this.fullName = fullName;
     }
 
     public String getCountry() {
-        return Country;
+        return country;
     }
 
     public void setCountry(String country) {
-        Country = country;
+        this.country = country;
     }
 }
 

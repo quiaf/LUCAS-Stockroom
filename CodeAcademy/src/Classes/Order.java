@@ -1,50 +1,50 @@
 package Classes;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Order {
 
-    private int OrderID;
-    private int StockroomID;
-    private Date Date;
-    private String Status;
+    private int orderID;
+    private int stockroomID;
+    private LocalDate orderDate;
+    private String status;
 
-    public Order(int orderID, int stockroomID, java.util.Date date, String status) {
-        OrderID = orderID;
-        StockroomID = stockroomID;
-        Date = date;
-        Status = status;
+    public Order(int orderID, int stockroomID, LocalDate orderDate, String status) {
+        this.orderID = orderID;
+        this.stockroomID = stockroomID;
+        this.orderDate = orderDate;
+        this.status = status;
     }
 
     public int getOrderID() {
-        return OrderID;
+        return orderID;
     }
 
     public void setOrderID(int orderID) {
-        OrderID = orderID;
+        this.orderID = orderID;
     }
 
     public int getStockroomID() {
-        return StockroomID;
+        return stockroomID;
     }
 
     public void setStockroomID(int stockroomID) {
-        StockroomID = stockroomID;
+        this.stockroomID = stockroomID;
     }
 
-    public java.util.Date getDate() {
-        return Date;
+    public LocalDate getOrderDate() {
+        return orderDate;
     }
 
-    public void setDate(java.util.Date date) {
-        Date = date;
+    public void setOrderDate(LocalDate orderDate) {
+        this.orderDate = orderDate;
     }
 
     public String getStatus() {
-        return Status;
+        return status;
     }
 
     public void setStatus(String status) {
-        Status = status;
+        this.status = status;
     }
 }

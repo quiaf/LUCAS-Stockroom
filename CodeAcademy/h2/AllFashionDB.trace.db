@@ -1,0 +1,767 @@
+2022-08-06 10:22:00 jdbc[3]: exception
+java.sql.SQLClientInfoException: Client info name 'ApplicationName' not supported.
+	at org.h2.jdbc.JdbcConnection.setClientInfo(JdbcConnection.java:1573)
+	at org.jkiss.dbeaver.ext.generic.model.GenericDataSource.populateClientAppName(GenericDataSource.java:177)
+	at org.jkiss.dbeaver.ext.generic.model.GenericDataSource.openConnection(GenericDataSource.java:140)
+	at org.jkiss.dbeaver.ext.h2.model.H2DataSource.openConnection(H2DataSource.java:74)
+	at org.jkiss.dbeaver.model.impl.jdbc.JDBCExecutionContext.connect(JDBCExecutionContext.java:103)
+	at org.jkiss.dbeaver.model.impl.jdbc.JDBCRemoteInstance.initializeMainContext(JDBCRemoteInstance.java:100)
+	at org.jkiss.dbeaver.model.impl.jdbc.JDBCRemoteInstance.<init>(JDBCRemoteInstance.java:59)
+	at org.jkiss.dbeaver.model.impl.jdbc.JDBCDataSource.initializeRemoteInstance(JDBCDataSource.java:113)
+	at org.jkiss.dbeaver.ext.generic.model.GenericDataSource.<init>(GenericDataSource.java:109)
+	at org.jkiss.dbeaver.ext.h2.model.H2DataSource.<init>(H2DataSource.java:43)
+	at org.jkiss.dbeaver.ext.h2.model.H2MetaModel.createDataSourceImpl(H2MetaModel.java:55)
+	at org.jkiss.dbeaver.ext.generic.GenericDataSourceProvider.openDataSource(GenericDataSourceProvider.java:106)
+	at org.jkiss.dbeaver.registry.DataSourceDescriptor.openDataSource(DataSourceDescriptor.java:946)
+	at org.jkiss.dbeaver.registry.DataSourceDescriptor.connect(DataSourceDescriptor.java:880)
+	at org.jkiss.dbeaver.runtime.jobs.ConnectJob.run(ConnectJob.java:70)
+	at org.jkiss.dbeaver.runtime.jobs.ConnectJob.runSync(ConnectJob.java:98)
+	at org.jkiss.dbeaver.ui.actions.datasource.DataSourceHandler.connectToDataSource(DataSourceHandler.java:113)
+	at org.jkiss.dbeaver.ui.actions.datasource.UIServiceConnectionsImpl.initConnection(UIServiceConnectionsImpl.java:70)
+	at org.jkiss.dbeaver.model.navigator.DBNDataSource.initializeNode(DBNDataSource.java:158)
+	at org.jkiss.dbeaver.model.navigator.DBNDatabaseNode.getChildren(DBNDatabaseNode.java:225)
+	at org.jkiss.dbeaver.model.navigator.DBNDatabaseNode.getChildren(DBNDatabaseNode.java:1)
+	at org.jkiss.dbeaver.model.navigator.DBNUtils.getNodeChildrenFiltered(DBNUtils.java:77)
+	at org.jkiss.dbeaver.ui.navigator.database.load.TreeLoadService.evaluate(TreeLoadService.java:49)
+	at org.jkiss.dbeaver.ui.navigator.database.load.TreeLoadService.evaluate(TreeLoadService.java:1)
+	at org.jkiss.dbeaver.ui.LoadingJob.run(LoadingJob.java:88)
+	at org.jkiss.dbeaver.ui.LoadingJob.run(LoadingJob.java:72)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:105)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+2022-08-06 10:28:54 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "CREATE TABLE STOCKROOM\000d\000a(\000d\000a    ID  IDENTITY PRIMARY KEY,\000d\000a    MANAGER_ID    INTEGER,\000d\000a    NAME         TEXT,\000d\000a    LOCATION     TEXT,\000d\000a    ADDRESS      TEXT,\000d\000a[*])"; se esperaba "identifier"
+Syntax error in SQL statement "CREATE TABLE STOCKROOM\000d\000a(\000d\000a    ID  IDENTITY PRIMARY KEY,\000d\000a    MANAGER_ID    INTEGER,\000d\000a    NAME         TEXT,\000d\000a    LOCATION     TEXT,\000d\000a    ADDRESS      TEXT,\000d\000a[*])"; expected "identifier"; SQL statement:
+CREATE TABLE STOCKROOM
+(
+    ID  IDENTITY PRIMARY KEY,
+    MANAGER_ID    INTEGER,
+    NAME         TEXT,
+    LOCATION     TEXT,
+    ADDRESS      TEXT,
+) [42001-210]
+2022-08-06 10:29:50 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "CREATE TABLE ORDER_DETAIL\000d\000a(\000d\000a    ID      IDENTITY PRIMARY KEY,\000d\000a    PRODUCT_ID    INTEGER,\000d\000a    QUANTITY     INTEGER,\000d\000a    [*]VALUE        INTEGER,\000d\000a)"; se esperaba "identifier"
+Syntax error in SQL statement "CREATE TABLE ORDER_DETAIL\000d\000a(\000d\000a    ID      IDENTITY PRIMARY KEY,\000d\000a    PRODUCT_ID    INTEGER,\000d\000a    QUANTITY     INTEGER,\000d\000a    [*]VALUE        INTEGER,\000d\000a)"; expected "identifier"; SQL statement:
+CREATE TABLE ORDER_DETAIL
+(
+    ID      IDENTITY PRIMARY KEY,
+    PRODUCT_ID    INTEGER,
+    QUANTITY     INTEGER,
+    VALUE        INTEGER,
+) [42001-210]
+2022-08-06 10:30:10 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "CREATE TABLE MANAGER\000d\000a(\000d\000a    ID IDENTITY PRIMARY KEY,\000d\000a    DNI INTEGER,\000d\000a    FULLNAME TEXT,\000d\000a    COUNTRY TEXT,\000d\000a[*]);\000d\000a\000d\000aCREATE TABLE BUY_ORDER\000d\000a(\000d\000a    ID IDENTITY PRIMARY KEY,\000d\000a    STOCKROOM_ID INTEGER,\000d\000a    ORDERDATE DATE,\000d\000a    STATUS TEXT,\000d\000a);\000d\000a\000d\000aCREATE TABLE DEVICE\000d\000a(\000d\000a    ID IDENTITY PRIMARY KEY,\000d\000a    PRODUCT_ID INTEGER,\000d\000a    STOCKROOM_ID INTEGER,\000d\000a    MANUFACTURER TEXT,\000d\000a    MODEL TEXT,\000d\000a    SERIALNUMBER TEXT,\000d\000a    VALUE INTEGER,\000d\000a    );\000d\000a\000d\000aCREATE TABLE ORDER_DETAIL\000d\000a(\000d\000a    ID IDENTITY PRIMARY KEY,\000d\000a    PRODUCT_ID INTEGER,\000d\000a    QUANTITY INTEGER,\000d\000a    VALUE INTEGER,\000d\000a)\000d\000a"; se esperaba "identifier"
+Syntax error in SQL statement "CREATE TABLE MANAGER\000d\000a(\000d\000a    ID IDENTITY PRIMARY KEY,\000d\000a    DNI INTEGER,\000d\000a    FULLNAME TEXT,\000d\000a    COUNTRY TEXT,\000d\000a[*]);\000d\000a\000d\000aCREATE TABLE BUY_ORDER\000d\000a(\000d\000a    ID IDENTITY PRIMARY KEY,\000d\000a    STOCKROOM_ID INTEGER,\000d\000a    ORDERDATE DATE,\000d\000a    STATUS TEXT,\000d\000a);\000d\000a\000d\000aCREATE TABLE DEVICE\000d\000a(\000d\000a    ID IDENTITY PRIMARY KEY,\000d\000a    PRODUCT_ID INTEGER,\000d\000a    STOCKROOM_ID INTEGER,\000d\000a    MANUFACTURER TEXT,\000d\000a    MODEL TEXT,\000d\000a    SERIALNUMBER TEXT,\000d\000a    VALUE INTEGER,\000d\000a    );\000d\000a\000d\000aCREATE TABLE ORDER_DETAIL\000d\000a(\000d\000a    ID IDENTITY PRIMARY KEY,\000d\000a    PRODUCT_ID INTEGER,\000d\000a    QUANTITY INTEGER,\000d\000a    VALUE INTEGER,\000d\000a)\000d\000a"; expected "identifier"; SQL statement:
+CREATE TABLE MANAGER
+(
+    ID IDENTITY PRIMARY KEY,
+    DNI INTEGER,
+    FULLNAME TEXT,
+    COUNTRY TEXT,
+);
+
+CREATE TABLE BUY_ORDER
+(
+    ID IDENTITY PRIMARY KEY,
+    STOCKROOM_ID INTEGER,
+    ORDERDATE DATE,
+    STATUS TEXT,
+);
+
+CREATE TABLE DEVICE
+(
+    ID IDENTITY PRIMARY KEY,
+    PRODUCT_ID INTEGER,
+    STOCKROOM_ID INTEGER,
+    MANUFACTURER TEXT,
+    MODEL TEXT,
+    SERIALNUMBER TEXT,
+    VALUE INTEGER,
+    );
+
+CREATE TABLE ORDER_DETAIL
+(
+    ID IDENTITY PRIMARY KEY,
+    PRODUCT_ID INTEGER,
+    QUANTITY INTEGER,
+    VALUE INTEGER,
+)
+ [42001-210]
+2022-08-06 10:31:50 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "CREATE TABLE ORDER_DETAIL\000d\000a(\000d\000a    ID IDENTITY PRIMARY KEY,\000d\000a    PRODUCT_ID INTEGER,\000d\000a    QUANTITY INTEGER,\000d\000a    [*]VALUE INTEGER,\000d\000a)"; se esperaba "identifier"
+Syntax error in SQL statement "CREATE TABLE ORDER_DETAIL\000d\000a(\000d\000a    ID IDENTITY PRIMARY KEY,\000d\000a    PRODUCT_ID INTEGER,\000d\000a    QUANTITY INTEGER,\000d\000a    [*]VALUE INTEGER,\000d\000a)"; expected "identifier"; SQL statement:
+CREATE TABLE ORDER_DETAIL
+(
+    ID IDENTITY PRIMARY KEY,
+    PRODUCT_ID INTEGER,
+    QUANTITY INTEGER,
+    VALUE INTEGER,
+) [42001-210]
+2022-08-06 10:34:05 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "CREATE TABLE MANAGER\000d\000a(\000d\000aID IDENTITY PRIMARY KEY \000d\000a[*]DNI INTEGER\000d\000aFULLNAME TEXT\000d\000aCOUNTRY TEXT\000d\000a)"; se esperaba "HASH, CONSTRAINT, COMMENT, UNIQUE, NOT, NULL, CHECK, REFERENCES, ,, )"
+Syntax error in SQL statement "CREATE TABLE MANAGER\000d\000a(\000d\000aID IDENTITY PRIMARY KEY \000d\000a[*]DNI INTEGER\000d\000aFULLNAME TEXT\000d\000aCOUNTRY TEXT\000d\000a)"; expected "HASH, CONSTRAINT, COMMENT, UNIQUE, NOT, NULL, CHECK, REFERENCES, ,, )"; SQL statement:
+CREATE TABLE MANAGER
+(
+ID IDENTITY PRIMARY KEY 
+DNI INTEGER
+FULLNAME TEXT
+COUNTRY TEXT
+) [42001-210]
+2022-08-06 10:34:21 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "CREATE TABLE MANAGER\000d\000a(\000d\000aID IDENTITY PRIMARY KEY, \000d\000aDNI INTEGER,\000d\000aFULLNAME TEXT,\000d\000aCOUNTRY TEXT,\000d\000a[*])"; se esperaba "identifier"
+Syntax error in SQL statement "CREATE TABLE MANAGER\000d\000a(\000d\000aID IDENTITY PRIMARY KEY, \000d\000aDNI INTEGER,\000d\000aFULLNAME TEXT,\000d\000aCOUNTRY TEXT,\000d\000a[*])"; expected "identifier"; SQL statement:
+CREATE TABLE MANAGER
+(
+ID IDENTITY PRIMARY KEY, 
+DNI INTEGER,
+FULLNAME TEXT,
+COUNTRY TEXT,
+) [42001-210]
+2022-08-06 10:35:36 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "CREATE TABLE MANAGER (\000d\000aID IDENTITY PRIMARY KEY, \000d\000aDNI INTEGER,\000d\000aFULLNAME TEXT,\000d\000aCOUNTRY TEXT,\000d\000a[*])"; se esperaba "identifier"
+Syntax error in SQL statement "CREATE TABLE MANAGER (\000d\000aID IDENTITY PRIMARY KEY, \000d\000aDNI INTEGER,\000d\000aFULLNAME TEXT,\000d\000aCOUNTRY TEXT,\000d\000a[*])"; expected "identifier"; SQL statement:
+CREATE TABLE MANAGER (
+ID IDENTITY PRIMARY KEY, 
+DNI INTEGER,
+FULLNAME TEXT,
+COUNTRY TEXT,
+) [42001-210]
+2022-08-06 10:39:20 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "CREATE TABLE MANAGER (\000d\000aID IDENTITY PRIMARY KEY, \000d\000aDNI INTEGER,\000d\000aFULLNAME TEXT,\000d\000aCOUNTRY TEXT,\000d\000a[*])"; se esperaba "identifier"
+Syntax error in SQL statement "CREATE TABLE MANAGER (\000d\000aID IDENTITY PRIMARY KEY, \000d\000aDNI INTEGER,\000d\000aFULLNAME TEXT,\000d\000aCOUNTRY TEXT,\000d\000a[*])"; expected "identifier"; SQL statement:
+CREATE TABLE MANAGER (
+ID IDENTITY PRIMARY KEY, 
+DNI INTEGER,
+FULLNAME TEXT,
+COUNTRY TEXT,
+) [42001-210]
+2022-08-06 10:39:27 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "INSERT [*]TABLE MANAGER (\000d\000aID IDENTITY PRIMARY KEY, \000d\000aDNI INTEGER,\000d\000aFULLNAME TEXT,\000d\000aCOUNTRY TEXT,\000d\000a)"; se esperaba "INTO"
+Syntax error in SQL statement "INSERT [*]TABLE MANAGER (\000d\000aID IDENTITY PRIMARY KEY, \000d\000aDNI INTEGER,\000d\000aFULLNAME TEXT,\000d\000aCOUNTRY TEXT,\000d\000a)"; expected "INTO"; SQL statement:
+INSERT TABLE MANAGER (
+ID IDENTITY PRIMARY KEY, 
+DNI INTEGER,
+FULLNAME TEXT,
+COUNTRY TEXT,
+) [42001-210]
+2022-08-06 10:44:39 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Columna "KEY_SEQ" no encontrada
+Column "KEY_SEQ" not found [42122-210]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:521)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:496)
+	at org.h2.message.DbException.get(DbException.java:227)
+	at org.h2.message.DbException.get(DbException.java:203)
+	at org.h2.jdbc.JdbcResultSet.getColumnIndex(JdbcResultSet.java:3492)
+	at org.h2.jdbc.JdbcResultSet.getInt(JdbcResultSet.java:337)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCResultSetImpl.getInt(JDBCResultSetImpl.java:500)
+	at org.jkiss.dbeaver.model.impl.jdbc.JDBCUtils.safeGetInt(JDBCUtils.java:105)
+	at org.jkiss.dbeaver.ext.generic.model.GenericUtils.safeGetInt(GenericUtils.java:84)
+	at org.jkiss.dbeaver.ext.generic.model.meta.GenericMetaModel.createConstraintColumnsImpl(GenericMetaModel.java:783)
+	at org.jkiss.dbeaver.ext.h2.model.H2MetaModel.createConstraintColumnsImpl(H2MetaModel.java:192)
+	at org.jkiss.dbeaver.ext.generic.model.ConstraintKeysCache.fetchObjectRow(ConstraintKeysCache.java:98)
+	at org.jkiss.dbeaver.ext.generic.model.ConstraintKeysCache.fetchObjectRow(ConstraintKeysCache.java:1)
+	at org.jkiss.dbeaver.model.impl.jdbc.cache.JDBCCompositeCache.loadObjects(JDBCCompositeCache.java:350)
+	at org.jkiss.dbeaver.model.impl.jdbc.cache.JDBCCompositeCache.getObjects(JDBCCompositeCache.java:120)
+	at org.jkiss.dbeaver.ext.generic.model.GenericTableBase.getConstraints(GenericTableBase.java:217)
+	at org.jkiss.dbeaver.ext.generic.model.GenericTableBase.getConstraints(GenericTableBase.java:1)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.jkiss.dbeaver.model.navigator.DBNDatabaseNode.extractPropertyValue(DBNDatabaseNode.java:964)
+	at org.jkiss.dbeaver.model.navigator.DBNDatabaseNode$PropertyValueReader.run(DBNDatabaseNode.java:1036)
+	at org.jkiss.dbeaver.model.navigator.DBNDatabaseNode$PropertyValueReader.run(DBNDatabaseNode.java:1)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:172)
+	at org.jkiss.dbeaver.model.navigator.DBNDatabaseNode.loadTreeItems(DBNDatabaseNode.java:595)
+	at org.jkiss.dbeaver.model.navigator.DBNDatabaseNode.loadChildren(DBNDatabaseNode.java:464)
+	at org.jkiss.dbeaver.model.navigator.DBNDatabaseNode.reloadChildren(DBNDatabaseNode.java:835)
+	at org.jkiss.dbeaver.model.navigator.DBNDatabaseNode.loadChildren(DBNDatabaseNode.java:501)
+	at org.jkiss.dbeaver.model.navigator.DBNDatabaseNode.reloadChildren(DBNDatabaseNode.java:835)
+	at org.jkiss.dbeaver.model.navigator.DBNDatabaseNode.refreshNodeContent(DBNDatabaseNode.java:394)
+	at org.jkiss.dbeaver.model.navigator.DBNDatabaseNode.refreshNode(DBNDatabaseNode.java:369)
+	at org.jkiss.dbeaver.ui.editors.entity.EntityEditor$1.run(EntityEditor.java:387)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:105)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+2022-08-06 10:45:33 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Constraint "ID" ya existe
+Constraint "ID" already exists; SQL statement:
+CREATE TABLE PUBLIC.BUYORDER (
+	STOCKROOM_ID INTEGER,
+	ORDER_DATE DATE,
+	ID INTEGER,
+	STATUS TEXT,
+	CONSTRAINT ID PRIMARY KEY (ID)
+) [90045-210]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:651)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:496)
+	at org.h2.message.DbException.get(DbException.java:227)
+	at org.h2.message.DbException.get(DbException.java:203)
+	at org.h2.command.ddl.AlterTableAddConstraint.tryUpdate(AlterTableAddConstraint.java:109)
+	at org.h2.command.ddl.AlterTableAddConstraint.update(AlterTableAddConstraint.java:72)
+	at org.h2.command.ddl.AlterTable.update(AlterTable.java:46)
+	at org.h2.command.ddl.CommandWithColumns.createConstraints(CommandWithColumns.java:83)
+	at org.h2.command.ddl.CreateTable.update(CreateTable.java:131)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:174)
+	at org.h2.command.Command.executeUpdate(Command.java:252)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:252)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:223)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.execute(JDBCStatementImpl.java:329)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.lambda$0(JDBCStatementImpl.java:131)
+	at org.jkiss.dbeaver.utils.SecurityManagerUtils.wrapDriverActions(SecurityManagerUtils.java:94)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.executeStatement(JDBCStatementImpl.java:131)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.executeStatement(SQLQueryJob.java:577)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.lambda$1(SQLQueryJob.java:486)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:172)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.executeSingleQuery(SQLQueryJob.java:493)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.extractData(SQLQueryJob.java:894)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditor$QueryResultsContainer.readData(SQLEditor.java:3642)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetJobDataRead.lambda$0(ResultSetJobDataRead.java:118)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:172)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetJobDataRead.run(ResultSetJobDataRead.java:116)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetViewer$ResultSetDataPumpJob.run(ResultSetViewer.java:4891)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:105)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+2022-08-06 10:46:16 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Constraint "ID" ya existe
+Constraint "ID" already exists; SQL statement:
+CREATE TABLE PUBLIC.BUYORDER (
+	STOCKROOM_ID INTEGER,
+	ORDER_DATE DATE,
+	ID INTEGER,
+	STATUS TEXT,
+	CONSTRAINT ID PRIMARY KEY (ID)
+) [90045-210]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:651)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:496)
+	at org.h2.message.DbException.get(DbException.java:227)
+	at org.h2.message.DbException.get(DbException.java:203)
+	at org.h2.command.ddl.AlterTableAddConstraint.tryUpdate(AlterTableAddConstraint.java:109)
+	at org.h2.command.ddl.AlterTableAddConstraint.update(AlterTableAddConstraint.java:72)
+	at org.h2.command.ddl.AlterTable.update(AlterTable.java:46)
+	at org.h2.command.ddl.CommandWithColumns.createConstraints(CommandWithColumns.java:83)
+	at org.h2.command.ddl.CreateTable.update(CreateTable.java:131)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:174)
+	at org.h2.command.Command.executeUpdate(Command.java:252)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:252)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:223)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.execute(JDBCStatementImpl.java:329)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.lambda$0(JDBCStatementImpl.java:131)
+	at org.jkiss.dbeaver.utils.SecurityManagerUtils.wrapDriverActions(SecurityManagerUtils.java:94)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.executeStatement(JDBCStatementImpl.java:131)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.executeStatement(SQLQueryJob.java:577)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.lambda$1(SQLQueryJob.java:486)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:172)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.executeSingleQuery(SQLQueryJob.java:493)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.run(SQLQueryJob.java:233)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:105)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+2022-08-06 11:15:33 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "CREATE TABLE PUBLIC.DEVICE (\000d\000a\0009ID INTEGER,\000d\000a\0009PRODUCT_ID INTEGER,\000d\000a\0009STOCKROOM_ID INTEGER,\000d\000a\0009MANUFACTURER TEXT,\000d\000a\0009MODEL TEXT,\000d\000a\0009SERIAL_NUMBER TEXT,\000d\000a\0009[*]VALUE INTEGER,\000d\000a\0009CONSTRAINT ID PRIMARY KEY (ID)\000d\000a)"; se esperaba "identifier"
+Syntax error in SQL statement "CREATE TABLE PUBLIC.DEVICE (\000d\000a\0009ID INTEGER,\000d\000a\0009PRODUCT_ID INTEGER,\000d\000a\0009STOCKROOM_ID INTEGER,\000d\000a\0009MANUFACTURER TEXT,\000d\000a\0009MODEL TEXT,\000d\000a\0009SERIAL_NUMBER TEXT,\000d\000a\0009[*]VALUE INTEGER,\000d\000a\0009CONSTRAINT ID PRIMARY KEY (ID)\000d\000a)"; expected "identifier"; SQL statement:
+CREATE TABLE PUBLIC.DEVICE (
+	ID INTEGER,
+	PRODUCT_ID INTEGER,
+	STOCKROOM_ID INTEGER,
+	MANUFACTURER TEXT,
+	MODEL TEXT,
+	SERIAL_NUMBER TEXT,
+	VALUE INTEGER,
+	CONSTRAINT ID PRIMARY KEY (ID)
+) [42001-210]
+2022-08-06 11:15:39 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "CREATE TABLE PUBLIC.DEVICE (\000d\000a\0009ID INTEGER,\000d\000a\0009PRODUCT_ID INTEGER,\000d\000a\0009STOCKROOM_ID INTEGER,\000d\000a\0009MANUFACTURER TEXT,\000d\000a\0009MODEL TEXT,\000d\000a\0009SERIAL_NUMBER TEXT,\000d\000a\0009[*]VALUE INTEGER,\000d\000a\0009CONSTRAINT ID PRIMARY KEY (ID)\000d\000a)"; se esperaba "identifier"
+Syntax error in SQL statement "CREATE TABLE PUBLIC.DEVICE (\000d\000a\0009ID INTEGER,\000d\000a\0009PRODUCT_ID INTEGER,\000d\000a\0009STOCKROOM_ID INTEGER,\000d\000a\0009MANUFACTURER TEXT,\000d\000a\0009MODEL TEXT,\000d\000a\0009SERIAL_NUMBER TEXT,\000d\000a\0009[*]VALUE INTEGER,\000d\000a\0009CONSTRAINT ID PRIMARY KEY (ID)\000d\000a)"; expected "identifier"; SQL statement:
+CREATE TABLE PUBLIC.DEVICE (
+	ID INTEGER,
+	PRODUCT_ID INTEGER,
+	STOCKROOM_ID INTEGER,
+	MANUFACTURER TEXT,
+	MODEL TEXT,
+	SERIAL_NUMBER TEXT,
+	VALUE INTEGER,
+	CONSTRAINT ID PRIMARY KEY (ID)
+) [42001-210]
+2022-08-06 11:15:52 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Constraint "ID" ya existe
+Constraint "ID" already exists; SQL statement:
+CREATE TABLE PUBLIC.BUYORDER (
+	ID INTEGER,
+	STOCKROOM_ID INTEGER,
+	ORDER_DATE DATE,
+	STATUS TEXT,
+	CONSTRAINT ID PRIMARY KEY (ID)
+) [90045-210]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:651)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:496)
+	at org.h2.message.DbException.get(DbException.java:227)
+	at org.h2.message.DbException.get(DbException.java:203)
+	at org.h2.command.ddl.AlterTableAddConstraint.tryUpdate(AlterTableAddConstraint.java:109)
+	at org.h2.command.ddl.AlterTableAddConstraint.update(AlterTableAddConstraint.java:72)
+	at org.h2.command.ddl.AlterTable.update(AlterTable.java:46)
+	at org.h2.command.ddl.CommandWithColumns.createConstraints(CommandWithColumns.java:83)
+	at org.h2.command.ddl.CreateTable.update(CreateTable.java:131)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:174)
+	at org.h2.command.Command.executeUpdate(Command.java:252)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:252)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:223)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.execute(JDBCStatementImpl.java:329)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.lambda$0(JDBCStatementImpl.java:131)
+	at org.jkiss.dbeaver.utils.SecurityManagerUtils.wrapDriverActions(SecurityManagerUtils.java:94)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.executeStatement(JDBCStatementImpl.java:131)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.executePersistAction(DBExecUtils.java:333)
+	at org.jkiss.dbeaver.model.impl.edit.AbstractObjectManager.executePersistAction(AbstractObjectManager.java:40)
+	at org.jkiss.dbeaver.model.impl.edit.AbstractCommandContext.executeCommands(AbstractCommandContext.java:206)
+	at org.jkiss.dbeaver.model.impl.edit.AbstractCommandContext.saveChanges(AbstractCommandContext.java:122)
+	at org.jkiss.dbeaver.ui.editors.entity.EntityEditor.lambda$1(EntityEditor.java:360)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:172)
+	at org.jkiss.dbeaver.ui.editors.entity.EntityEditor.saveCommandContext(EntityEditor.java:358)
+	at org.jkiss.dbeaver.ui.editors.entity.EntityEditor$SaveJob.run(EntityEditor.java:1198)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:105)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+2022-08-06 11:16:08 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Constraint "ID" ya existe
+Constraint "ID" already exists; SQL statement:
+CREATE TABLE PUBLIC.BUYORDER (
+	ID INTEGER,
+	STOCKROOM_ID INTEGER,
+	ORDER_DATE DATE,
+	STATUS TEXT,
+	CONSTRAINT ID PRIMARY KEY (ID)
+) [90045-210]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:651)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:496)
+	at org.h2.message.DbException.get(DbException.java:227)
+	at org.h2.message.DbException.get(DbException.java:203)
+	at org.h2.command.ddl.AlterTableAddConstraint.tryUpdate(AlterTableAddConstraint.java:109)
+	at org.h2.command.ddl.AlterTableAddConstraint.update(AlterTableAddConstraint.java:72)
+	at org.h2.command.ddl.AlterTable.update(AlterTable.java:46)
+	at org.h2.command.ddl.CommandWithColumns.createConstraints(CommandWithColumns.java:83)
+	at org.h2.command.ddl.CreateTable.update(CreateTable.java:131)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:174)
+	at org.h2.command.Command.executeUpdate(Command.java:252)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:252)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:223)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.execute(JDBCStatementImpl.java:329)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.lambda$0(JDBCStatementImpl.java:131)
+	at org.jkiss.dbeaver.utils.SecurityManagerUtils.wrapDriverActions(SecurityManagerUtils.java:94)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.executeStatement(JDBCStatementImpl.java:131)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.executePersistAction(DBExecUtils.java:333)
+	at org.jkiss.dbeaver.model.impl.edit.AbstractObjectManager.executePersistAction(AbstractObjectManager.java:40)
+	at org.jkiss.dbeaver.model.impl.edit.AbstractCommandContext.executeCommands(AbstractCommandContext.java:206)
+	at org.jkiss.dbeaver.model.impl.edit.AbstractCommandContext.saveChanges(AbstractCommandContext.java:122)
+	at org.jkiss.dbeaver.ui.editors.entity.EntityEditor.lambda$1(EntityEditor.java:360)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:172)
+	at org.jkiss.dbeaver.ui.editors.entity.EntityEditor.saveCommandContext(EntityEditor.java:358)
+	at org.jkiss.dbeaver.ui.editors.entity.EntityEditor$SaveJob.run(EntityEditor.java:1198)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:105)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+2022-08-06 11:17:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Constraint "ID" ya existe
+Constraint "ID" already exists; SQL statement:
+ALTER TABLE PUBLIC.BUYORDER ADD CONSTRAINT ID PRIMARY KEY (BUYORDER_ID) [90045-210]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:651)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:496)
+	at org.h2.message.DbException.get(DbException.java:227)
+	at org.h2.message.DbException.get(DbException.java:203)
+	at org.h2.command.ddl.AlterTableAddConstraint.tryUpdate(AlterTableAddConstraint.java:109)
+	at org.h2.command.ddl.AlterTableAddConstraint.update(AlterTableAddConstraint.java:72)
+	at org.h2.command.ddl.AlterTable.update(AlterTable.java:46)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:174)
+	at org.h2.command.Command.executeUpdate(Command.java:252)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:252)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:223)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.execute(JDBCStatementImpl.java:329)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.lambda$0(JDBCStatementImpl.java:131)
+	at org.jkiss.dbeaver.utils.SecurityManagerUtils.wrapDriverActions(SecurityManagerUtils.java:94)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.executeStatement(JDBCStatementImpl.java:131)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.executePersistAction(DBExecUtils.java:333)
+	at org.jkiss.dbeaver.model.impl.edit.AbstractObjectManager.executePersistAction(AbstractObjectManager.java:40)
+	at org.jkiss.dbeaver.model.impl.edit.AbstractCommandContext.executeCommands(AbstractCommandContext.java:206)
+	at org.jkiss.dbeaver.model.impl.edit.AbstractCommandContext.saveChanges(AbstractCommandContext.java:122)
+	at org.jkiss.dbeaver.ui.editors.entity.EntityEditor.lambda$1(EntityEditor.java:360)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:172)
+	at org.jkiss.dbeaver.ui.editors.entity.EntityEditor.saveCommandContext(EntityEditor.java:358)
+	at org.jkiss.dbeaver.ui.editors.entity.EntityEditor$SaveJob.run(EntityEditor.java:1198)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:105)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+2022-08-06 11:17:11 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Columna "BUYORDER_ID" no puede ser nullable
+Column "BUYORDER_ID" must not be nullable; SQL statement:
+ALTER TABLE PUBLIC.BUYORDER ADD CONSTRAINT BUYORDER_ID PRIMARY KEY (BUYORDER_ID) [90023-210]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:651)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:496)
+	at org.h2.message.DbException.get(DbException.java:227)
+	at org.h2.message.DbException.get(DbException.java:203)
+	at org.h2.mvstore.db.MVTable.prepareColumns(MVTable.java:918)
+	at org.h2.mvstore.db.MVTable.addIndex(MVTable.java:337)
+	at org.h2.command.ddl.AlterTableAddConstraint.tryUpdate(AlterTableAddConstraint.java:147)
+	at org.h2.command.ddl.AlterTableAddConstraint.update(AlterTableAddConstraint.java:72)
+	at org.h2.command.ddl.AlterTable.update(AlterTable.java:46)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:174)
+	at org.h2.command.Command.executeUpdate(Command.java:252)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:252)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:223)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.execute(JDBCStatementImpl.java:329)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.lambda$0(JDBCStatementImpl.java:131)
+	at org.jkiss.dbeaver.utils.SecurityManagerUtils.wrapDriverActions(SecurityManagerUtils.java:94)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.executeStatement(JDBCStatementImpl.java:131)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.executePersistAction(DBExecUtils.java:333)
+	at org.jkiss.dbeaver.model.impl.edit.AbstractObjectManager.executePersistAction(AbstractObjectManager.java:40)
+	at org.jkiss.dbeaver.model.impl.edit.AbstractCommandContext.executeCommands(AbstractCommandContext.java:206)
+	at org.jkiss.dbeaver.model.impl.edit.AbstractCommandContext.saveChanges(AbstractCommandContext.java:122)
+	at org.jkiss.dbeaver.ui.editors.entity.EntityEditor.lambda$1(EntityEditor.java:360)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:172)
+	at org.jkiss.dbeaver.ui.editors.entity.EntityEditor.saveCommandContext(EntityEditor.java:358)
+	at org.jkiss.dbeaver.ui.editors.entity.EntityEditor$SaveJob.run(EntityEditor.java:1198)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:105)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+2022-08-06 11:18:25 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Columna "BUYORDER_ID" no puede ser nullable
+Column "BUYORDER_ID" must not be nullable; SQL statement:
+ALTER TABLE PUBLIC.BUYORDER ADD CONSTRAINT BUYORDER_PK PRIMARY KEY (BUYORDER_ID) [90023-210]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:651)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:496)
+	at org.h2.message.DbException.get(DbException.java:227)
+	at org.h2.message.DbException.get(DbException.java:203)
+	at org.h2.mvstore.db.MVTable.prepareColumns(MVTable.java:918)
+	at org.h2.mvstore.db.MVTable.addIndex(MVTable.java:337)
+	at org.h2.command.ddl.AlterTableAddConstraint.tryUpdate(AlterTableAddConstraint.java:147)
+	at org.h2.command.ddl.AlterTableAddConstraint.update(AlterTableAddConstraint.java:72)
+	at org.h2.command.ddl.AlterTable.update(AlterTable.java:46)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:174)
+	at org.h2.command.Command.executeUpdate(Command.java:252)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:252)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:223)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.execute(JDBCStatementImpl.java:329)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.lambda$0(JDBCStatementImpl.java:131)
+	at org.jkiss.dbeaver.utils.SecurityManagerUtils.wrapDriverActions(SecurityManagerUtils.java:94)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.executeStatement(JDBCStatementImpl.java:131)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.executePersistAction(DBExecUtils.java:333)
+	at org.jkiss.dbeaver.model.impl.edit.AbstractObjectManager.executePersistAction(AbstractObjectManager.java:40)
+	at org.jkiss.dbeaver.model.impl.edit.AbstractCommandContext.executeCommands(AbstractCommandContext.java:206)
+	at org.jkiss.dbeaver.model.impl.edit.AbstractCommandContext.saveChanges(AbstractCommandContext.java:122)
+	at org.jkiss.dbeaver.ui.editors.entity.EntityEditor.lambda$1(EntityEditor.java:360)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:172)
+	at org.jkiss.dbeaver.ui.editors.entity.EntityEditor.saveCommandContext(EntityEditor.java:358)
+	at org.jkiss.dbeaver.ui.editors.entity.EntityEditor$SaveJob.run(EntityEditor.java:1198)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:105)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+2022-08-06 11:18:48 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "CREATE TABLE PUBLIC.DEVICE (\000d\000a\0009ID INTEGER,\000d\000a\0009PRODUCT_ID INTEGER,\000d\000a\0009STOCKROOM_ID INTEGER,\000d\000a\0009MANUFACTURER TEXT,\000d\000a\0009MODEL TEXT,\000d\000a\0009SERIAL_NUMBER TEXT,\000d\000a\0009[*]VALUE INTEGER,\000d\000a\0009CONSTRAINT ID PRIMARY KEY (ID)\000d\000a)"; se esperaba "identifier"
+Syntax error in SQL statement "CREATE TABLE PUBLIC.DEVICE (\000d\000a\0009ID INTEGER,\000d\000a\0009PRODUCT_ID INTEGER,\000d\000a\0009STOCKROOM_ID INTEGER,\000d\000a\0009MANUFACTURER TEXT,\000d\000a\0009MODEL TEXT,\000d\000a\0009SERIAL_NUMBER TEXT,\000d\000a\0009[*]VALUE INTEGER,\000d\000a\0009CONSTRAINT ID PRIMARY KEY (ID)\000d\000a)"; expected "identifier"; SQL statement:
+CREATE TABLE PUBLIC.DEVICE (
+	ID INTEGER,
+	PRODUCT_ID INTEGER,
+	STOCKROOM_ID INTEGER,
+	MANUFACTURER TEXT,
+	MODEL TEXT,
+	SERIAL_NUMBER TEXT,
+	VALUE INTEGER,
+	CONSTRAINT ID PRIMARY KEY (ID)
+) [42001-210]
+2022-08-06 11:19:04 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "CREATE TABLE PUBLIC.DEVICE (\000d\000a\0009INVENTORY_ID INTEGER,\000d\000a\0009PRODUCT_ID INTEGER,\000d\000a\0009STOCKROOM_ID INTEGER,\000d\000a\0009MANUFACTURER TEXT,\000d\000a\0009MODEL TEXT,\000d\000a\0009SERIAL_NUMBER TEXT,\000d\000a\0009[*]VALUE INTEGER\000d\000a)"; se esperaba "identifier"
+Syntax error in SQL statement "CREATE TABLE PUBLIC.DEVICE (\000d\000a\0009INVENTORY_ID INTEGER,\000d\000a\0009PRODUCT_ID INTEGER,\000d\000a\0009STOCKROOM_ID INTEGER,\000d\000a\0009MANUFACTURER TEXT,\000d\000a\0009MODEL TEXT,\000d\000a\0009SERIAL_NUMBER TEXT,\000d\000a\0009[*]VALUE INTEGER\000d\000a)"; expected "identifier"; SQL statement:
+CREATE TABLE PUBLIC.DEVICE (
+	INVENTORY_ID INTEGER,
+	PRODUCT_ID INTEGER,
+	STOCKROOM_ID INTEGER,
+	MANUFACTURER TEXT,
+	MODEL TEXT,
+	SERIAL_NUMBER TEXT,
+	VALUE INTEGER
+) [42001-210]
+2022-08-06 11:19:19 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "CREATE TABLE PUBLIC.DEVICE (\000d\000a\0009INVENTORY_ID INTEGER,\000d\000a\0009PRODUCT_ID INTEGER,\000d\000a\0009STOCKROOM_ID INTEGER,\000d\000a\0009MANUFACTURER TEXT,\000d\000a\0009MODEL TEXT,\000d\000a\0009SERIAL_NUMBER TEXT,\000d\000a\0009[*]VALUE INTEGER\000d\000a)"; se esperaba "identifier"
+Syntax error in SQL statement "CREATE TABLE PUBLIC.DEVICE (\000d\000a\0009INVENTORY_ID INTEGER,\000d\000a\0009PRODUCT_ID INTEGER,\000d\000a\0009STOCKROOM_ID INTEGER,\000d\000a\0009MANUFACTURER TEXT,\000d\000a\0009MODEL TEXT,\000d\000a\0009SERIAL_NUMBER TEXT,\000d\000a\0009[*]VALUE INTEGER\000d\000a)"; expected "identifier"; SQL statement:
+CREATE TABLE PUBLIC.DEVICE (
+	INVENTORY_ID INTEGER,
+	PRODUCT_ID INTEGER,
+	STOCKROOM_ID INTEGER,
+	MANUFACTURER TEXT,
+	MODEL TEXT,
+	SERIAL_NUMBER TEXT,
+	VALUE INTEGER
+) [42001-210]
+2022-08-06 11:19:40 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "CREATE TABLE PUBLIC.ORDER_DETAIL (\000d\000a\0009ORDER_DETAIL_ID INTEGER,\000d\000a\0009PRODUCT_ID INTEGER,\000d\000a\0009QUANTITY INTEGER,\000d\000a\0009[*]VALUE INTEGER\000d\000a)"; se esperaba "identifier"
+Syntax error in SQL statement "CREATE TABLE PUBLIC.ORDER_DETAIL (\000d\000a\0009ORDER_DETAIL_ID INTEGER,\000d\000a\0009PRODUCT_ID INTEGER,\000d\000a\0009QUANTITY INTEGER,\000d\000a\0009[*]VALUE INTEGER\000d\000a)"; expected "identifier"; SQL statement:
+CREATE TABLE PUBLIC.ORDER_DETAIL (
+	ORDER_DETAIL_ID INTEGER,
+	PRODUCT_ID INTEGER,
+	QUANTITY INTEGER,
+	VALUE INTEGER
+) [42001-210]
+2022-08-06 11:19:48 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "CREATE TABLE PUBLIC.ORDER_DETAIL (\000d\000a\0009PRODUCT_ID INTEGER,\000d\000a\0009QUANTITY INTEGER,\000d\000a\0009[*]VALUE INTEGER\000d\000a)"; se esperaba "identifier"
+Syntax error in SQL statement "CREATE TABLE PUBLIC.ORDER_DETAIL (\000d\000a\0009PRODUCT_ID INTEGER,\000d\000a\0009QUANTITY INTEGER,\000d\000a\0009[*]VALUE INTEGER\000d\000a)"; expected "identifier"; SQL statement:
+CREATE TABLE PUBLIC.ORDER_DETAIL (
+	PRODUCT_ID INTEGER,
+	QUANTITY INTEGER,
+	VALUE INTEGER
+) [42001-210]
+2022-08-06 11:20:38 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "CREATE TABLE PUBLIC.ORDERZ_DETAIL (\000d\000a\0009PRODUCT_ID INTEGER,\000d\000a\0009QUANTITY INTEGER,\000d\000a\0009[*]VALUE INTEGER\000d\000a)"; se esperaba "identifier"
+Syntax error in SQL statement "CREATE TABLE PUBLIC.ORDERZ_DETAIL (\000d\000a\0009PRODUCT_ID INTEGER,\000d\000a\0009QUANTITY INTEGER,\000d\000a\0009[*]VALUE INTEGER\000d\000a)"; expected "identifier"; SQL statement:
+CREATE TABLE PUBLIC.ORDERZ_DETAIL (
+	PRODUCT_ID INTEGER,
+	QUANTITY INTEGER,
+	VALUE INTEGER
+) [42001-210]
+2022-08-06 11:20:50 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "CREATE TABLE PUBLIC.BUYORDER_DETAIL (\000d\000a\0009PRODUCT_ID INTEGER,\000d\000a\0009QUANTITY INTEGER,\000d\000a\0009[*]VALUE INTEGER\000d\000a)"; se esperaba "identifier"
+Syntax error in SQL statement "CREATE TABLE PUBLIC.BUYORDER_DETAIL (\000d\000a\0009PRODUCT_ID INTEGER,\000d\000a\0009QUANTITY INTEGER,\000d\000a\0009[*]VALUE INTEGER\000d\000a)"; expected "identifier"; SQL statement:
+CREATE TABLE PUBLIC.BUYORDER_DETAIL (
+	PRODUCT_ID INTEGER,
+	QUANTITY INTEGER,
+	VALUE INTEGER
+) [42001-210]
+2022-08-06 11:22:20 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Columna "BUYORDER_ID" no puede ser nullable
+Column "BUYORDER_ID" must not be nullable; SQL statement:
+ALTER TABLE PUBLIC.BUYORDER ADD CONSTRAINT BUYORDER_PK PRIMARY KEY (BUYORDER_ID) [90023-210]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:651)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:496)
+	at org.h2.message.DbException.get(DbException.java:227)
+	at org.h2.message.DbException.get(DbException.java:203)
+	at org.h2.mvstore.db.MVTable.prepareColumns(MVTable.java:918)
+	at org.h2.mvstore.db.MVTable.addIndex(MVTable.java:337)
+	at org.h2.command.ddl.AlterTableAddConstraint.tryUpdate(AlterTableAddConstraint.java:147)
+	at org.h2.command.ddl.AlterTableAddConstraint.update(AlterTableAddConstraint.java:72)
+	at org.h2.command.ddl.AlterTable.update(AlterTable.java:46)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:174)
+	at org.h2.command.Command.executeUpdate(Command.java:252)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:252)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:223)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.execute(JDBCStatementImpl.java:329)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.lambda$0(JDBCStatementImpl.java:131)
+	at org.jkiss.dbeaver.utils.SecurityManagerUtils.wrapDriverActions(SecurityManagerUtils.java:94)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.executeStatement(JDBCStatementImpl.java:131)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.executePersistAction(DBExecUtils.java:333)
+	at org.jkiss.dbeaver.model.impl.edit.AbstractObjectManager.executePersistAction(AbstractObjectManager.java:40)
+	at org.jkiss.dbeaver.model.impl.edit.AbstractCommandContext.executeCommands(AbstractCommandContext.java:206)
+	at org.jkiss.dbeaver.model.impl.edit.AbstractCommandContext.saveChanges(AbstractCommandContext.java:122)
+	at org.jkiss.dbeaver.ui.editors.entity.EntityEditor.lambda$1(EntityEditor.java:360)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:172)
+	at org.jkiss.dbeaver.ui.editors.entity.EntityEditor.saveCommandContext(EntityEditor.java:358)
+	at org.jkiss.dbeaver.ui.editors.entity.EntityEditor$SaveJob.run(EntityEditor.java:1198)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:105)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+2022-08-06 11:23:17 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "CREATE TABLE PUBLIC.DEVICE (\000d\000a\0009INVENTORY_ID INTEGER,\000d\000a\0009PRODUCT_ID INTEGER,\000d\000a\0009STOCKROOM_ID INTEGER,\000d\000a\0009MANUFACTURER TEXT,\000d\000a\0009MODEL TEXT,\000d\000a\0009SERIAL_NUMBER TEXT,\000d\000a\0009[*]VALUE INTEGER\000d\000a)"; se esperaba "identifier"
+Syntax error in SQL statement "CREATE TABLE PUBLIC.DEVICE (\000d\000a\0009INVENTORY_ID INTEGER,\000d\000a\0009PRODUCT_ID INTEGER,\000d\000a\0009STOCKROOM_ID INTEGER,\000d\000a\0009MANUFACTURER TEXT,\000d\000a\0009MODEL TEXT,\000d\000a\0009SERIAL_NUMBER TEXT,\000d\000a\0009[*]VALUE INTEGER\000d\000a)"; expected "identifier"; SQL statement:
+CREATE TABLE PUBLIC.DEVICE (
+	INVENTORY_ID INTEGER,
+	PRODUCT_ID INTEGER,
+	STOCKROOM_ID INTEGER,
+	MANUFACTURER TEXT,
+	MODEL TEXT,
+	SERIAL_NUMBER TEXT,
+	VALUE INTEGER
+) [42001-210]
+2022-08-06 11:24:28 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Constraint "BUYORDER_PK" no encontrado
+Constraint "BUYORDER_PK" not found; SQL statement:
+ALTER TABLE PUBLIC.BUYORDER DROP CONSTRAINT BUYORDER_PK [90057-210]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:651)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:496)
+	at org.h2.message.DbException.get(DbException.java:227)
+	at org.h2.message.DbException.get(DbException.java:203)
+	at org.h2.command.ddl.AlterTableDropConstraint.update(AlterTableDropConstraint.java:51)
+	at org.h2.command.ddl.AlterTable.update(AlterTable.java:46)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:174)
+	at org.h2.command.Command.executeUpdate(Command.java:252)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:252)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:223)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.execute(JDBCStatementImpl.java:329)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.lambda$0(JDBCStatementImpl.java:131)
+	at org.jkiss.dbeaver.utils.SecurityManagerUtils.wrapDriverActions(SecurityManagerUtils.java:94)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.executeStatement(JDBCStatementImpl.java:131)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.executePersistAction(DBExecUtils.java:333)
+	at org.jkiss.dbeaver.model.impl.edit.AbstractObjectManager.executePersistAction(AbstractObjectManager.java:40)
+	at org.jkiss.dbeaver.model.impl.edit.AbstractCommandContext.executeCommands(AbstractCommandContext.java:206)
+	at org.jkiss.dbeaver.model.impl.edit.AbstractCommandContext.saveChanges(AbstractCommandContext.java:122)
+	at org.jkiss.dbeaver.ui.editors.entity.EntityEditor.lambda$1(EntityEditor.java:360)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:172)
+	at org.jkiss.dbeaver.ui.editors.entity.EntityEditor.saveCommandContext(EntityEditor.java:358)
+	at org.jkiss.dbeaver.ui.editors.entity.EntityEditor$SaveJob.run(EntityEditor.java:1198)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:105)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+2022-08-06 11:24:35 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Constraint "BUYORDER_PK" no encontrado
+Constraint "BUYORDER_PK" not found; SQL statement:
+ALTER TABLE PUBLIC.BUYORDER DROP CONSTRAINT BUYORDER_PK [90057-210]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:651)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:496)
+	at org.h2.message.DbException.get(DbException.java:227)
+	at org.h2.message.DbException.get(DbException.java:203)
+	at org.h2.command.ddl.AlterTableDropConstraint.update(AlterTableDropConstraint.java:51)
+	at org.h2.command.ddl.AlterTable.update(AlterTable.java:46)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:174)
+	at org.h2.command.Command.executeUpdate(Command.java:252)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:252)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:223)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.execute(JDBCStatementImpl.java:329)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.lambda$0(JDBCStatementImpl.java:131)
+	at org.jkiss.dbeaver.utils.SecurityManagerUtils.wrapDriverActions(SecurityManagerUtils.java:94)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.executeStatement(JDBCStatementImpl.java:131)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.executePersistAction(DBExecUtils.java:333)
+	at org.jkiss.dbeaver.model.impl.edit.AbstractObjectManager.executePersistAction(AbstractObjectManager.java:40)
+	at org.jkiss.dbeaver.model.impl.edit.AbstractCommandContext.executeCommands(AbstractCommandContext.java:206)
+	at org.jkiss.dbeaver.model.impl.edit.AbstractCommandContext.saveChanges(AbstractCommandContext.java:122)
+	at org.jkiss.dbeaver.ui.editors.entity.EntityEditor.lambda$1(EntityEditor.java:360)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:172)
+	at org.jkiss.dbeaver.ui.editors.entity.EntityEditor.saveCommandContext(EntityEditor.java:358)
+	at org.jkiss.dbeaver.ui.editors.entity.EntityEditor$SaveJob.run(EntityEditor.java:1198)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:105)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+2022-08-06 11:28:23 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Columna "Lucas Zak" no encontrada
+Column "Lucas Zak" not found; SQL statement:
+INSERT INTO MANAGER (FULL_NAME, DNI, ID, COUNTRY)
+VALUES
+("Lucas Zak","38615105","000001","Argentina") [42122-210]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:521)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:496)
+	at org.h2.message.DbException.get(DbException.java:227)
+	at org.h2.message.DbException.get(DbException.java:203)
+	at org.h2.expression.ExpressionColumn.getColumnException(ExpressionColumn.java:248)
+	at org.h2.expression.ExpressionColumn.optimizeOther(ExpressionColumn.java:230)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:213)
+	at org.h2.command.dml.Insert.prepare(Insert.java:300)
+	at org.h2.command.Parser.prepareCommand(Parser.java:557)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:615)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:553)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1116)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:237)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:223)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.execute(JDBCStatementImpl.java:329)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.lambda$0(JDBCStatementImpl.java:131)
+	at org.jkiss.dbeaver.utils.SecurityManagerUtils.wrapDriverActions(SecurityManagerUtils.java:94)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.executeStatement(JDBCStatementImpl.java:131)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.executeStatement(SQLQueryJob.java:577)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.lambda$1(SQLQueryJob.java:486)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.executeSingleQuery(SQLQueryJob.java:496)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.extractData(SQLQueryJob.java:894)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditor$QueryResultsContainer.readData(SQLEditor.java:3642)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetJobDataRead.lambda$0(ResultSetJobDataRead.java:118)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:172)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetJobDataRead.run(ResultSetJobDataRead.java:116)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetViewer$ResultSetDataPumpJob.run(ResultSetViewer.java:4891)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:105)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+2022-08-06 11:28:43 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Columna "Lucas Zak" no encontrada
+Column "Lucas Zak" not found; SQL statement:
+INSERT INTO MANAGER (FULL_NAME)
+VALUES
+("Lucas Zak") [42122-210]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:521)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:496)
+	at org.h2.message.DbException.get(DbException.java:227)
+	at org.h2.message.DbException.get(DbException.java:203)
+	at org.h2.expression.ExpressionColumn.getColumnException(ExpressionColumn.java:248)
+	at org.h2.expression.ExpressionColumn.optimizeOther(ExpressionColumn.java:230)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:213)
+	at org.h2.command.dml.Insert.prepare(Insert.java:300)
+	at org.h2.command.Parser.prepareCommand(Parser.java:557)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:615)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:553)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1116)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:237)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:223)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.execute(JDBCStatementImpl.java:329)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.lambda$0(JDBCStatementImpl.java:131)
+	at org.jkiss.dbeaver.utils.SecurityManagerUtils.wrapDriverActions(SecurityManagerUtils.java:94)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.executeStatement(JDBCStatementImpl.java:131)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.executeStatement(SQLQueryJob.java:577)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.lambda$1(SQLQueryJob.java:486)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.executeSingleQuery(SQLQueryJob.java:496)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.extractData(SQLQueryJob.java:894)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditor$QueryResultsContainer.readData(SQLEditor.java:3642)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetJobDataRead.lambda$0(ResultSetJobDataRead.java:118)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:172)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetJobDataRead.run(ResultSetJobDataRead.java:116)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetViewer$ResultSetDataPumpJob.run(ResultSetViewer.java:4891)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:105)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+2022-08-06 11:28:43 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Columna "Lucas Zak" no encontrada
+Column "Lucas Zak" not found; SQL statement:
+INSERT INTO MANAGER (FULL_NAME)
+VALUES
+("Lucas Zak") [42122-210]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:521)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:496)
+	at org.h2.message.DbException.get(DbException.java:227)
+	at org.h2.message.DbException.get(DbException.java:203)
+	at org.h2.expression.ExpressionColumn.getColumnException(ExpressionColumn.java:248)
+	at org.h2.expression.ExpressionColumn.optimizeOther(ExpressionColumn.java:230)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:213)
+	at org.h2.command.dml.Insert.prepare(Insert.java:300)
+	at org.h2.command.Parser.prepareCommand(Parser.java:557)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:615)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:553)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1116)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:237)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:223)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.execute(JDBCStatementImpl.java:329)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.lambda$0(JDBCStatementImpl.java:131)
+	at org.jkiss.dbeaver.utils.SecurityManagerUtils.wrapDriverActions(SecurityManagerUtils.java:94)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.executeStatement(JDBCStatementImpl.java:131)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.executeStatement(SQLQueryJob.java:577)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.lambda$1(SQLQueryJob.java:486)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.executeSingleQuery(SQLQueryJob.java:496)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.extractData(SQLQueryJob.java:894)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditor$QueryResultsContainer.readData(SQLEditor.java:3642)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetJobDataRead.lambda$0(ResultSetJobDataRead.java:118)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:172)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetJobDataRead.run(ResultSetJobDataRead.java:116)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetViewer$ResultSetDataPumpJob.run(ResultSetViewer.java:4891)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:105)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+2022-08-06 11:29:06 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "MYTABLE" no encontrada
+Table "MYTABLE" not found; SQL statement:
+INSERT INTO `myTable` (`name`,`country`,`numberrange`)
+VALUES
+  ("Holly Buckner","Mexico",),
+  ("Ralph Yang","Canada",),
+  ("Melanie Lester","Philippines",),
+  ("Todd Garrett","Brazil",),
+  ("Tallulah Hernandez","Russian Federation",) [42102-210]
+2022-08-06 11:31:11 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "insert into MANAGER (id, full_name, DNI, COUNTRY) values (1, 'Hanan Cluatt', '843-51-0711', 'South Korea'),\000d\000a[*]"; se esperaba "ROW, (, DEFAULT, INTERSECTS, NOT, EXISTS, UNIQUE, INTERSECTS"
+Syntax error in SQL statement "insert into MANAGER (id, full_name, DNI, COUNTRY) values (1, 'Hanan Cluatt', '843-51-0711', 'South Korea'),\000d\000a[*]"; expected "ROW, (, DEFAULT, INTERSECTS, NOT, EXISTS, UNIQUE, INTERSECTS"; SQL statement:
+insert into MANAGER (id, full_name, DNI, COUNTRY) values (1, 'Hanan Cluatt', '843-51-0711', 'South Korea'),
+ [42001-210]
+2022-08-06 11:31:56 jdbc[3]: exception
+java.sql.SQLClientInfoException: Client info name 'ApplicationName' not supported.
+	at org.h2.jdbc.JdbcConnection.setClientInfo(JdbcConnection.java:1573)
+	at org.jkiss.dbeaver.ext.generic.model.GenericDataSource.populateClientAppName(GenericDataSource.java:177)
+	at org.jkiss.dbeaver.ext.generic.model.GenericDataSource.openConnection(GenericDataSource.java:140)
+	at org.jkiss.dbeaver.ext.h2.model.H2DataSource.openConnection(H2DataSource.java:74)
+	at org.jkiss.dbeaver.model.impl.jdbc.JDBCExecutionContext.connect(JDBCExecutionContext.java:103)
+	at org.jkiss.dbeaver.model.impl.jdbc.JDBCRemoteInstance.initializeMainContext(JDBCRemoteInstance.java:100)
+	at org.jkiss.dbeaver.model.impl.jdbc.JDBCRemoteInstance.<init>(JDBCRemoteInstance.java:59)
+	at org.jkiss.dbeaver.model.impl.jdbc.JDBCDataSource.initializeRemoteInstance(JDBCDataSource.java:113)
+	at org.jkiss.dbeaver.ext.generic.model.GenericDataSource.<init>(GenericDataSource.java:109)
+	at org.jkiss.dbeaver.ext.h2.model.H2DataSource.<init>(H2DataSource.java:43)
+	at org.jkiss.dbeaver.ext.h2.model.H2MetaModel.createDataSourceImpl(H2MetaModel.java:55)
+	at org.jkiss.dbeaver.ext.generic.GenericDataSourceProvider.openDataSource(GenericDataSourceProvider.java:106)
+	at org.jkiss.dbeaver.registry.DataSourceDescriptor.openDataSource(DataSourceDescriptor.java:946)
+	at org.jkiss.dbeaver.registry.DataSourceDescriptor.connect(DataSourceDescriptor.java:880)
+	at org.jkiss.dbeaver.runtime.jobs.ConnectJob.run(ConnectJob.java:70)
+	at org.jkiss.dbeaver.runtime.jobs.ConnectJob.runSync(ConnectJob.java:98)
+	at org.jkiss.dbeaver.ui.actions.datasource.DataSourceHandler.connectToDataSource(DataSourceHandler.java:113)
+	at org.jkiss.dbeaver.ui.actions.datasource.UIServiceConnectionsImpl.initConnection(UIServiceConnectionsImpl.java:70)
+	at org.jkiss.dbeaver.model.navigator.DBNDataSource.initializeNode(DBNDataSource.java:158)
+	at org.jkiss.dbeaver.model.navigator.DBNDatabaseNode.getChildren(DBNDatabaseNode.java:225)
+	at org.jkiss.dbeaver.model.navigator.DBNDatabaseNode.getChildren(DBNDatabaseNode.java:1)
+	at org.jkiss.dbeaver.model.navigator.DBNUtils.getNodeChildrenFiltered(DBNUtils.java:77)
+	at org.jkiss.dbeaver.ui.navigator.database.load.TreeLoadService.evaluate(TreeLoadService.java:49)
+	at org.jkiss.dbeaver.ui.navigator.database.load.TreeLoadService.evaluate(TreeLoadService.java:1)
+	at org.jkiss.dbeaver.ui.LoadingJob.run(LoadingJob.java:88)
+	at org.jkiss.dbeaver.ui.LoadingJob.run(LoadingJob.java:72)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:105)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)

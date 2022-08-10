@@ -1,58 +1,58 @@
 package Classes;
 
 public class Stockroom {
-    int StockroomID;
-    int ManagerID;
-    String Name;
-    String Location;
-    String Address;
+    private int stockroomID;
+    private int managerID;
+    private String name;
+    private String location;
+    private String address;
 
 
     public Stockroom(int stockroomID, int managerID, String name, String location, String address) {
-        StockroomID = stockroomID;
-        ManagerID = managerID;
-        Name = name;
-        Location = location;
-        Address = address;
+        this.stockroomID = stockroomID;
+        this.managerID = managerID;
+        this.name = name;
+        this.location = location;
+        this.address = address;
     }
 
     public int getStockroomID() {
-        return StockroomID;
+        return stockroomID;
     }
 
     public void setStockroomID(int stockroomID) {
-        StockroomID = stockroomID;
+        this.stockroomID = stockroomID;
     }
 
     public int getManagerID() {
-        return ManagerID;
+        return managerID;
     }
 
     public void setManagerID(int managerID) {
-        ManagerID = managerID;
+        this.managerID = managerID;
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public void setName(String name) {
-        Name = name;
+        this.name = name;
     }
 
     public String getLocation() {
-        return Location;
+        return location;
     }
 
     public void setLocation(String location) {
-        Location = location;
+        this.location = location;
     }
 
     public String getAddress() {
-        return Address;
+        return address;
     }
 
     public void setAddress(String address) {
-        Address = address;
+        this.address = address;
     }
 }

@@ -2,47 +2,47 @@ package Classes;
 
 public class OrderDetail {
 
-    int OrderID;
-    int ProductID;
-    int Quantity;
-    int Value;
+    private int orderID;
+    private int productID;
+    private int quantity;
+    private int value;
 
     public OrderDetail(int orderID, int productID, int quantity, int value) {
-        OrderID = orderID;
-        ProductID = productID;
-        Quantity = quantity;
-        Value = value;
+        this.orderID = orderID;
+        this.productID = productID;
+        this.quantity = quantity;
+        this.value = value;
     }
 
     public int getOrderID() {
-        return OrderID;
+        return orderID;
     }
 
     public void setOrderID(int orderID) {
-        OrderID = orderID;
+        this.orderID = orderID;
     }
 
     public int getProductID() {
-        return ProductID;
+        return productID;
     }
 
     public void setProductID(int productID) {
-        ProductID = productID;
+        this.productID = productID;
     }
 
     public int getQuantity() {
-        return Quantity;
+        return quantity;
     }
 
     public void setQuantity(int quantity) {
-        Quantity = quantity;
+        this.quantity = quantity;
     }
 
     public int getValue() {
-        return Value;
+        return value;
     }
 
     public void setValue(int value) {
-        Value = value;
+        this.value = value;
     }
 }
